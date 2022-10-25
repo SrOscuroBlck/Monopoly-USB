@@ -42,6 +42,7 @@ scene.add(board);
 camera.position.z = 6;
 
 //Renderización de las componentes previamente creadas
+let i = 0;
 function animate() {
 	requestAnimationFrame(animate);
 	renderer.render(scene, camera);
