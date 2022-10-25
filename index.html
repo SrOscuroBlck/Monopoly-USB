@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Llamado de librerías de Bootstrap mediante CDNJS-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="sytle.css" />
+    <title>Main Page</title>
+  </head>
+
+  <body id="indexBody">
+    <!-- Comienzo de la barra de navegación -->
+    <div class="container-fluid p-0" id="cover">
+      <div class="row m-0 p-0">
+        <div class="col-md-12 p-0">
+          <nav
+            class="navbar navbar-expand-lg navbar-light fixed-top"
+            id="navBar"
+          >
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#" id="logo">
+                <img
+                  src="multimedia/logo.png"
+                  alt="logo"
+                  width="400px"
+                  height="auto"
+                />
+              </a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Instrucciones</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Sobre Nosotros</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Reporta Bugs</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <!-- Fin de la barra de navegación -->
+
+      <!-- Comienzo de la presentación del juego -->
+      <div class="row m-0 p-0">
+        <div class="col-md-12" id="presentation">
+          <a href="ingame/collectData.html"><button>CREAR PARTIDA</button></a>
+
+        </div>
+      </div>
+      <!--Fin de la presentación del juego-->
+
+      <!--Uso de scripts de Bootstrap-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    </div>
+  </body>
+</html>

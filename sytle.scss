@@ -1,0 +1,255 @@
+@font-face {
+    font-family: RubikNormal;
+    src: url(fonts/Rubik-Medium.ttf);
+}
+@font-face {
+    font-family: RubikBold;
+    src: url(fonts/Rubik-Bold.ttf);
+}
+@font-face {
+    font-family: RubikItalic;
+    src: url(fonts/Rubik-SemiBoldItalic.ttf);
+}
+@font-face {
+    font-family: Play;
+    src: url(fonts/PlayfairDisplay-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: Lobster;
+    src: url(fonts/Lobster-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+// Game presentation
+#cover {
+    background-image: url(multimedia/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: darken;
+}
+
+#navBar {
+    background-color: #0c0b0b;
+    #logo2 {
+        font-size: 2rem;
+        font-family: Play;
+        color: #203331;
+    }
+    a {
+        font-family: Play;
+        font-size: 1.5rem;
+        color:#c20000;   
+    }
+    a:hover {
+        font-family: Play;
+        font-size: 1.5rem;
+        color:#e0b7b7;
+    }
+}
+
+#presentation {
+    padding-top: 23.95%;
+    padding-bottom: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    button {
+      width: 500px;
+      height: auto;
+      font-size: 50px;
+      border-radius: 30px;
+      background-color: #e0b7b7;
+      border-style: none;
+      font-family: Play;
+    }
+    button:hover {
+      background-color: #c20000;
+      color: white;
+
+    }
+}
+
+
+
+//In game
+
+  .ingame {
+    background-image: url(multimedia/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: darken;
+  }
+
+	html, body {
+    min-height: 100%;
+    }
+    body, div, form, input, select, p { 
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    color: #eee;
+    }
+    body {
+    background: url("/uploads/media/default/0001/01/b5edc1bad4dc8c20291c8394527cb2c5b43ee13c.jpeg") no-repeat center;
+    background-size: cover;
+    }
+    h1, h2 {
+    text-transform: uppercase;
+    font-weight: 400;
+    }
+    h2 {
+    margin: 0 0 0 8px;
+    }
+    .main-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 25px; 
+    }
+    .left-part, form {
+    padding: 25px;
+    }
+    .left-part {
+    text-align: center;
+    }
+    .fa-graduation-cap {
+    font-size: 72px;
+    }
+    form {
+    background: rgba(0, 0, 0, 0.7); 
+    }
+    .title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    }
+    .info {
+    display: flex;
+    flex-direction: column;
+    }
+    input, select {
+    padding: 5px;
+    margin-bottom: 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #eee;
+    }
+    input::placeholder {
+    color: #eee;
+    }
+    option:focus {
+    border: none;
+    }
+    option {
+    background: black; 
+    border: none;
+    }
+    .btn-item, button {
+    padding: 10px 5px;
+    margin-top: 20px;
+    border-radius: 5px; 
+    border: none;
+    background: #c20000; 
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    }
+    .btn-item {
+    display: inline-block;
+    margin: 20px 5px 0;
+    }
+    button {
+    width: 100%;
+    }
+    button:hover, .btn-item:hover {
+    background: #e0b7b7;
+    color: #0c0b0b;
+    }
+    @media (min-width: 568px) {
+    html, body {
+    height: 100%;
+    }
+    .main-block {
+    flex-direction: row;
+    height: calc(100% - 50px);
+    }
+    .left-part, form {
+    flex: 1;
+    height: auto;
+    }
+    }
+
+    .blur {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: #0c0b0b8a;
+    }
+
+@media only screen and (min-width: 721px) and (max-width: 1166px) {
+
+    #navBar {
+        background-color: #e7e5de;
+        #logo2 {
+    
+            font-size: 1.8rem;
+        }
+        a {
+            font-size: 1.3rem;
+        }
+        a:hover {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    #presentation {
+        padding-top: 25%;
+        padding-bottom: 10%;
+    }
+}
+
+@media only screen and (max-width: 920px) {
+    .textAboutMe{
+        margin-right: 0px !important;
+    }
+    #imageAboutMe {
+        margin-left: 0px !important;
+        margin-top: 2rem !important;
+        margin-bottom: 4rem !important;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+
+    #logo2 {
+        font-size: 4vw !important;
+        font-family: Play;
+        color: #203331;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #navbarNav {
+      width: 70%;
+      display: flex;
+      justify-content: right;  
+    }
+}
+
