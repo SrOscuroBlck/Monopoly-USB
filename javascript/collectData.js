@@ -1,7 +1,6 @@
 //Player creation
 let PlayerList =  [];
 
-
 class Player {
     constructor(nick,figure) {
         this.nick = nick;

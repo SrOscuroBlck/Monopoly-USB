@@ -22,7 +22,8 @@ const material = new THREE.MeshBasicMaterial({
 const board = new THREE.Mesh(geometry, material)
 
 //Ajustes de posición del tablero y agregado del tablero a la escena
-board.rotation.x = 5.3;
+board.rotation.x = 33;
+board.position.y = -3;
 scene.add(board);
 
 //Intento de cargado de un modelo 3D
@@ -39,12 +40,16 @@ scene.add(board);
 // } );
 
 //Ajustes de posición de la cámara
-camera.position.z = 6;
+// camera.rotation.y = 4;
 
 //Renderización de las componentes previamente creadas
 let i = 0;
 function animate() {
 	requestAnimationFrame(animate);
+	camera.lookAt(board.position);
+	camera.position.x = Math.cos(i) * 5;
+	camera.position.z = Math.sin(i) * 5;
+	i += 0.01;
 	renderer.render(scene, camera);
 }
 animate();
