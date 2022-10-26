@@ -26,7 +26,7 @@
 
 
 // Game presentation
-#cover {
+#indexBody {
     background-image: url(multimedia/background.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -201,6 +201,13 @@
         background-color: #0c0b0b8a;
     }
 
+    //Coming Soon
+    .gameOn {
+        position: fixed !important;
+        width: 100% !important;
+        height: 100%;
+        background-color: #0c0b0b8a !important;
+    }
 @media only screen and (min-width: 721px) and (max-width: 1166px) {
 
     #navBar {
