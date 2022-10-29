@@ -11,7 +11,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="sytle.css" />
+    <link rel="stylesheet" href="./src/css/sytle.css" />
     <title>Main Page</title>
   </head>
 
@@ -27,7 +27,7 @@
             <div class="container-fluid">
               <a class="navbar-brand" href="#" id="logo">
                 <img
-                  src="multimedia/logo.png"
+                  src="./src/multimedia/logo.png"
                   alt="logo"
                   width="400px"
                   height="auto"
@@ -47,7 +47,7 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Instrucciones</a>
+                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#instructionModal" href="#">Instrucciones</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Sobre Nosotros</a>
@@ -66,18 +66,56 @@
       <!-- Comienzo de la presentación del juego -->
       <div class="row m-0 p-0">
         <div class="col-md-12" id="presentation">
-          <a href="ingame/collectData.html"><button>CREAR PARTIDA</button></a>
-
+          <a href="./collectData.html"><button>CREAR PARTIDA</button></a>
         </div>
       </div>
       <!--Fin de la presentación del juego-->
 
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="instructionModal"
+        tabindex="-1"
+        aria-labelledby="instructionModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="instructionModalLabel">
+                Modal title
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">...</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!--Uso de scripts de Bootstrap-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
+      ></script>
     </div>
   </body>
 </html>

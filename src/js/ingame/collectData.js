@@ -15,7 +15,10 @@ function collectData() {
     PlayerList.push(new Player(nickName,figure));
     
     console.log(PlayerList[0].nick + PlayerList[0].figure);
+
+    //document.location.href('./comingSoon.html');
+    location.href = "../comingSoon.html";
 }
 //La funcion hace efecto al darle click al botón
 const button = document.getElementById("start");
-button.addEventListener('click',collectData,location.href='comingSoon.html');s
+button.addEventListener('click',collectData);

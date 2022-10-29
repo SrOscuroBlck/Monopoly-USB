@@ -24,7 +24,7 @@
 }
 
 #indexBody {
-  background-image: url(multimedia/background.png);
+  background-image: url(../multimedia/background.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -73,7 +73,7 @@
 }
 
 .ingame {
-  background-image: url(multimedia/background.png);
+  background-image: url(../multimedia/background.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
