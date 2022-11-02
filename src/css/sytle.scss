@@ -1,22 +1,22 @@
 @font-face {
     font-family: RubikNormal;
-    src: url(fonts/Rubik-Medium.ttf);
+    src: url(../fonts/Rubik-Medium.ttf);
 }
 @font-face {
     font-family: RubikBold;
-    src: url(fonts/Rubik-Bold.ttf);
+    src: url(../fonts/Rubik-Bold.ttf);
 }
 @font-face {
     font-family: RubikItalic;
-    src: url(fonts/Rubik-SemiBoldItalic.ttf);
+    src: url(../fonts/Rubik-SemiBoldItalic.ttf);
 }
 @font-face {
     font-family: Play;
-    src: url(fonts/PlayfairDisplay-VariableFont_wght.ttf);
+    src: url(../fonts/PlayfairDisplay-VariableFont_wght.ttf);
 }
 @font-face {
     font-family: Lobster;
-    src: url(fonts/Lobster-Regular.ttf);
+    src: url(../fonts/Lobster-Regular.ttf);
 }
 
 * {
@@ -24,6 +24,10 @@
     padding: 0;
 }
 
+.webgl{
+    width: 100%;
+    height: 100%;
+}
 
 // Game presentation
 #indexBody {
@@ -77,6 +81,11 @@
     }
 }
 
+//Modal
+#exampleModalLabel, .modal-body {
+    color: #0c0b0b;
+}
+
 
 
 //In game
@@ -93,17 +102,13 @@
 	html, body {
     min-height: 100%;
     }
-    body, div, form, input, select, p { 
+    .ingame, div, form, input, select, p { 
     padding: 0;
     margin: 0;
     outline: none;
     font-family: Roboto, Arial, sans-serif;
     font-size: 16px;
     color: #eee;
-    }
-    body {
-    background: url("/uploads/media/default/0001/01/b5edc1bad4dc8c20291c8394527cb2c5b43ee13c.jpeg") no-repeat center;
-    background-size: cover;
     }
     h1, h2 {
     text-transform: uppercase;
@@ -158,7 +163,7 @@
     background: black; 
     border: none;
     }
-    .btn-item, button {
+    .btn-item, #start {
     padding: 10px 5px;
     margin-top: 20px;
     border-radius: 5px; 
@@ -173,10 +178,10 @@
     display: inline-block;
     margin: 20px 5px 0;
     }
-    button {
+    #start {
     width: 100%;
     }
-    button:hover, .btn-item:hover {
+    #start:hover, .btn-item:hover {
     background: #e0b7b7;
     color: #0c0b0b;
     }

@@ -7,6 +7,8 @@ var camera = null,
 	renderer = null,
 	controls = null;
 
+
+// Inicialización de la escena
 function initScene() {
 	window.onresize = onWindowResize;
 	createBasicElements();
@@ -14,7 +16,7 @@ function initScene() {
 	loadModelGltf("../src/3dModels/pato/","../src/3dModels/pato/Duck.gltf");
 	animate();
 }
-
+// Creación de estructura básica para three.js
 function createBasicElements() {
 	//Cargado de textura
 	const texture = new THREE.TextureLoader().load("../src/textures/table.png");
@@ -24,12 +26,16 @@ function createBasicElements() {
 	//Creación de cámara
 	camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight);
 	//Configuración del renderizador, Definición de tamaño de la escena y declaración del renderer como dominante
-	renderer = new THREE.WebGLRenderer();
+	const canvas = document.querySelector('.webgl');
+	renderer = new THREE.WebGLRenderer({
+		canvas: canvas,
+        antialias: true
+	});
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	document.body.appendChild(renderer.domElement);
 
 	controls = new THREE.OrbitControls(camera, renderer.domElement);
-	camera.position.set(6.3, 3.7, 6.0);
+	camera.position.set(6.882041748355365, 4.45235845033474, 7.030995870152893);
 
 	controls.update();
 
@@ -52,23 +58,22 @@ function createBasicElements() {
 	scene.add(board);
 }
 
+//Renderización de la escena
 function animate() {
 	controls.update();
 	requestAnimationFrame(animate);
-	//camera.lookAt(board.position);
-	//camera.position.x = Math.cos(i) * 5;
-	//camera.position.z = Math.sin(i) * 5;
 	i += 0.01;
 	renderer.render(scene, camera);
 }
 
+//Ajuste de tamaño de la escena
 function onWindowResize() {
 	camera.aspect = window.innerWidth / window.innerHeight;
 	camera.updateProjectionMatrix();
 	renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
-
+//Cargado de modelos 3d de formato .obj
 function loadModelObjMtl(generalPath, pathObj, pathMtl) {
 	console.log("load model obj y mtl");
 	var mtlLoader = new THREE.MTLLoader();
@@ -91,6 +96,7 @@ function loadModelObjMtl(generalPath, pathObj, pathMtl) {
 	});
 }
 
+//Cargado de modelos 3d de formato .gltf  (Los comentarios adentro de este, están predeterminados por la librería por eso estan en inglés)
 function loadModelGltf(generalPath,filePath) {
 	// Instantiate a loader
 	const loader = new THREE.GLTFLoader();
@@ -128,6 +134,8 @@ function loadModelGltf(generalPath,filePath) {
 			console.log('An error happened');
 
 		}
+
 	);
 
 }
+
