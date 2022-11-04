@@ -1,11 +1,20 @@
 //Renderización de las componentes previamente creadas
 let i = 0;
+let objObjects = [];
+let gltfObjects = [];
+
+objectLoader = new THREE.OBJLoader();
+
+
 
 var camera = null,
 	scene = null,
 	board = null,
 	renderer = null,
-	controls = null;
+	controls = null,
+	modPlayer = null;
+
+
 
 
 // Inicialización de la escena
@@ -13,7 +22,14 @@ function initScene() {
 	window.onresize = onWindowResize;
 	createBasicElements();
 	loadModelObjMtl("../src/3dModels/dado/", "dice.obj", "dice.mtl");
+	generateUI();
 	loadModelGltf("../src/3dModels/pato/","../src/3dModels/pato/Duck.gltf");
+
+	objectLoader.load("dice.obj", function (object) {
+		object.position.x = 6;
+	});
+
+
 	animate();
 }
 // Creación de estructura básica para three.js
@@ -25,7 +41,7 @@ function createBasicElements() {
 	scene.background = new THREE.Color(0x2a4c3b);
 	//Creación de cámara
 	camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight);
-	//Configuración del renderizador, Definición de tamaño de la escena y declaración del renderer como dominante
+	//Configuración del renderizador, definición de tamaño de la escena y declaración del renderer como dominante
 	const canvas = document.querySelector('.webgl');
 	renderer = new THREE.WebGLRenderer({
 		canvas: canvas,
@@ -87,14 +103,90 @@ function loadModelObjMtl(generalPath, pathObj, pathMtl) {
 		objLoader.setMaterials(materials);
 		objLoader.setPath(generalPath);
 		objLoader.load(pathObj, function (object) {
-
 			object.scale.set(1, 1, 1);
 			object.position.y = 1;
+			modPlayer = object;
+			modPlayer.position.y = 0.3;
+			// modPlayer.scale.set(modelScale, modelScale, modelScale);
 			scene.add(object);
 		});
 
 	});
 }
+
+
+
+function generateUI() {
+	var gui = new dat.GUI({width:180});
+	var param = {
+		rotX: 0,
+		rotY: 0,
+		rotZ: 0,
+		movX: 0,
+		movY: 0,
+		movZ: 0,
+		scale: 1,
+		ColorLight: "#ffffff",
+		Intensity: 0.5
+	};
+
+	var m = gui.addFolder("Mover");
+	var e = gui.addFolder("Escalar");
+	var r = gui.addFolder("Rotar");
+	var l = gui.addFolder("Lights");
+
+	var movementX = m.add(param,'movX').min(-10).max(10).step(1).name("X");
+	var movementY = m.add(param,'movY').min(-10).max(10).step(1).name("Y");
+	var movementZ = m.add(param,'movZ').min(-10).max(10).step(1).name("Z");
+
+	movementX.onChange(function (valueX) {
+		modPlayer.position.x = valueX;
+	});
+
+	movementY.onChange(function (valueY) {
+		modPlayer.position.y = valueY;
+	});
+
+	movementZ.onChange(function (valueZ) {
+		modPlayer.position.z = valueZ;
+	});
+
+	var myScale = e.add(param,'scale').min(1).max(10).step(1).name("Scale");
+
+	myScale.onChange(function (myScaleN) {
+		modPlayer.scale.set(myScaleN,myScaleN,myScaleN);
+	});
+
+	var myRotationX = r.add(param,'rotX').min(-1).max(1).step(0.1).name("X");
+	var myRotationY = r.add(param,'rotY').min(-1).max(1).step(0.1).name("Y");
+	var myRotationZ = r.add(param,'rotZ').min(-1).max(1).step(0.1).name("Z");
+
+	myRotationX.onChange(function (rotationX) {
+		modPlayer.rotation.x = Math.PI*rotationX;
+	});
+
+	myRotationY.onChange(function (rotationY) {
+		modPlayer.rotation.y = Math.PI*rotationY;
+	});
+
+	myRotationZ.onChange(function (rotationZ) {
+		modPlayer.rotation.z = Math.PI*rotationZ;
+	});
+
+	var myColor = l.addColor(param, 'ColorLight');
+	var myIntensity = l.add(param, 'Intensity').min(0).max(1).step(0.1);
+
+	myColor.onChange(function (colorGet) {
+		console.log("Chage Color " + colorGet);
+		pointLight.color.setHex(Number(colorGet.toString().replace('#', '0x')));
+	});
+
+	myIntensity.onChange(function (intensity) {
+		pointLight.intensity = intensity;
+	});
+}
+
+
 
 //Cargado de modelos 3d de formato .gltf  (Los comentarios adentro de este, están predeterminados por la librería por eso estan en inglés)
 function loadModelGltf(generalPath,filePath) {
@@ -135,7 +227,7 @@ function loadModelGltf(generalPath,filePath) {
 
 		}
 
+
 	);
 
 }
-
